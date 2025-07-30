@@ -1,0 +1,29 @@
+{% macro excalidraw(file, title="Diagram") %}
+<div class="excalidraw-container">
+  <div class="excalidraw-header">
+    <h4>{{ title }}</h4>
+    <div class="excalidraw-actions">
+      <a href="{{ file }}" download class="md-button md-button--sm">
+        Download
+      </a>
+      <button onclick="openInExcalidraw('{{ file }}')" class="md-button md-button--primary md-button--sm">
+        Open in Excalidraw
+      </button>
+    </div>
+  </div>
+  <div class="excalidraw-preview">
+    <img src="{{ file.replace('.excalidraw', '.svg') }}" alt="{{ title }}">
+  </div>
+</div>
+
+<script>
+function openInExcalidraw(file) {
+  fetch(file)
+    .then(r => r.text())
+    .then(data => {
+      const url = 'https://excalidraw.com/#json=' + encodeURIComponent(data);
+      window.open(url, '_blank');
+    });
+}
+</script>
+{% endmacro %}

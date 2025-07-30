@@ -1,0 +1,90 @@
+/* google-sheets.css - Add to docs/css/ folder */
+
+/* Responsive container for Google Sheets */
+.google-sheets-container {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.google-sheets-container iframe {
+    width: 100%;
+    min-height: 400px;
+    border: none;
+}
+
+/* Wrapper with title and description */
+.sheets-wrapper {
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--md-code-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sheets-wrapper h3 {
+    margin-top: 0;
+    color: var(--md-primary-fg-color);
+}
+
+/* Loading state */
+.sheets-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background: #f5f5f5;
+}
+
+.sheets-loading::before {
+    content: "Loading spreadsheet...";
+    color: var(--md-default-fg-color--light);
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+    .google-sheets-container iframe {
+        min-height: 300px;
+    }
+}
+
+/* Dark mode support */
+[data-md-color-scheme="slate"] .google-sheets-container {
+    border-color: var(--md-default-fg-color--lighter);
+    background: var(--md-default-bg-color--lighter);
+}
+
+/* Full width option */
+.sheets-fullwidth {
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+@media (min-width: 1220px) {
+    .sheets-fullwidth {
+        margin-left: -48px;
+        margin-right: -48px;
+    }
+}
+
+/* Compact view */
+.sheets-compact iframe {
+    min-height: 250px;
+    max-height: 400px;
+}
+
+/* Chart-specific styling */
+.sheets-chart {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.sheets-chart iframe {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 4px;
+}

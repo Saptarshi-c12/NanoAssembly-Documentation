@@ -1,0 +1,135 @@
+site_name: The NanoAssembly Project Documentation
+site_url: https://example.com
+site_description: Nanoassembly documentation
+
+# Repository info (shows GitHub stars like Fastnew_sw)
+repo_name: Saptarshi-c12/NanoAssembly-Documentation
+repo_url: https://github.com/NanoAssembly-Documentation
+edit_uri: ""
+
+theme:
+  name: material
+  #custom_dir: overrides  # Optional: for custom templates
+  
+  # Fastnew_sw-like color scheme
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  # Font configuration like Fastnew_sw
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  # Features to match Fastnew_sw's behavior
+  features:
+    - navigation.instant      # Instant page loads
+    - navigation.tracking     # URL tracking
+    - navigation.tabs.sticky  # Sticky tabs
+    - navigation.sections     # Render sections as groups
+    - navigation.expand       # Expand all sections
+    - navigation.indexes      # Section index pages
+    - search.suggest          # Search suggestions
+    - search.highlight        # Search highlighting
+    - content.tabs.link       # Link content tabs
+    - content.code.annotate   # Code annotations
+    - content.code.copy       # Copy button on code blocks
+    
+  # Logo and favicon
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  
+  # Icons
+  icon:
+    repo: fontawesome/brands/github
+nav:
+  #- Home: index.md
+  
+  # Section 1 Header (acts as a visual separator)
+  - Getting Started:
+    - My Home: index.md
+    - User Manual: gs/user-manual.md
+    - Visual Flowchart: gs/flowchart.md
+  
+  # Section 2 Header
+  - Hardware:
+    - Hardware Drivers: hardware/hardware.md
+    - Hardware Constraints: hardware/issue.md
+    - Automation: hardware/sw.md
+  
+  - jControl - Production:
+    - Code Repository: jcp/repo.md
+    - Installation & Dependencies: jcp/depend.md
+    - WorkFlow: jcp/install.md
+    - GUI: jcp/gui.md
+    - Limitations: jcp/limit.md
+    
+
+  - jControl - WorkBench:
+    - Code Repository: jcp-work/repo.md
+    - Installation & Dependencies: jcp-work/depend.md
+    - WorkFlow: jcp-work/install.md
+    - GUI: jcp-work/gui.md
+    - Limitations: jcp-work/limit.md
+    
+  - jControl 2.0 (in progress) 🏗️:
+    - Requirements: new_sw/Requirement.md
+    - Feasibility & Planning: new_sw/Planning.md
+    - System Design: new_sw/Design.md
+    - Prototyping: new_sw/Prototype.md
+    - Implementation: new_sw/Implement.md
+    - Testing: new_sw/Test.md
+    - Integration: new_sw/Integrate.md
+    - Deployment: new_sw/Deploy.md 
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+  - mermaid2
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+# Optional: Extra CSS to ensure all items are always visible
+extra_css:
+  - css/custom.css
+  - css/google-sheets.css
+  - css/neoteroi-mkdocs.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
